@@ -1,5 +1,5 @@
 const ThankYouPage = {
-  render: (email) => {
+  render: (email = "test@test.com") => {
     const view = /*html*/ `
       <section class="thank-you-page">
         <h1> Thanks for subscribing!</h1>

@@ -1,36 +1,44 @@
 import { onNavigate } from "./app.js";
+import StartPageContent from "./StartPageContent.js";
 
 const StartPage = {
+  render: () => StartPageContent,
+  /* */
   onNavigate: () => {
     onNavigate("/thank-you");
   },
-  render: () => {
-    const view = /*html*/ `
-      <section class="start-page">
-        <h1>Stay updated!</h1>
-        <p>Join 60,000+ product managers receiving monthly updates on:</p>
-        <ul>
-          <li>Product discovery and building what matters</li>
-          <li>Measuring to ensure updates are a success</li>
-          <li>And much more!</li>
-        </ul>
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="email@company.com" />
-        <button class="subscribe-button">Subscribe to monthly newsletter</button>
-      </section>
-    `;
-    return view;
-  },
   addEventListener: () => {
-    document.querySelector(".subscribe-button").addEventListener("click", {
+    document.querySelector("#subscribe-button").addEventListener("click", {
       handleEvent: () => {
         const email = StartPage.getEmail();
         onNavigate("/thank-you", email);
       },
     });
+    document.querySelector("#email").addEventListener("input", {
+      handleEvent: () => {
+        const email = StartPage.getEmail();
+        if (StartPage.validateEmail(email)) {
+          document.querySelector("#subscribe-button").disabled = false;
+        } else {
+          document.querySelector("#subscribe-button").disabled = true;
+        }
+      },
+    });
+    document.querySelector("#subscribe-form").addEventListener("submit", {
+      handleEvent: StartPage.handleFormSubmit,
+    });
+  },
+  validateEmail: (email) => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
   },
   getEmail: () => {
     return document.getElementById("email").value;
+  },
+  handleFormSubmit: (event) => {
+    event.preventDefault();
+    const email = StartPage.getEmail();
+    onNavigate("/thank-you", email);
   },
 };
 
