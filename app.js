@@ -3,33 +3,32 @@
 import StartPage from "./StartPage.js";
 import ThankYouPage from "./ThankYouPage.js";
 
-const home = `
-  <section class="start-page">
-    <h1>Start Page</h1>
-    <button class="start-page__button" onclick="onNavigate('/thank-you')">Go to Thank You Page</button>
-    </section>`;
-
 const routes = {
   "/": StartPage,
   "/thank-you": ThankYouPage,
 };
 
 const root = document.getElementById("root");
-root.innerHTML = routes[window.location.pathname];
 
 const router = () => {
   const request = window.location.pathname;
   root.innerHTML = routes[request].render();
-  routes[request] === StartPage ? StartPage.addEventListener() : null;
+  addEventListeners();
 };
 
-const onNavigate = (pathname) => {
+const addEventListeners = () => {
+  const request = window.location.pathname;
+  if (routes[request].addEventListener) {
+    routes[request].addEventListener();
+  }
+};
+
+const onNavigate = (pathname, data) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);
-  root.innerHTML = routes[pathname].render();
+  root.innerHTML = routes[pathname].render(data);
 };
 
-window.addEventListener("hashchange", router);
-window.addEventListener("load", router);
 window.addEventListener("popstate", router);
+document.addEventListener("DOMContentLoaded", router);
 
 export { onNavigate };
