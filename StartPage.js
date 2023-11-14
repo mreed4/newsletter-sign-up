@@ -40,6 +40,9 @@ const StartPage = {
     const email = StartPage.getEmail();
     onNavigate("/thank-you", email);
   },
+  saveEmail: (email) => {
+    localStorage.setItem("email", email);
+  },
 };
 
 export default StartPage;

@@ -1,12 +1,18 @@
+import ThankYouPageContent from "./ThankYouPageContent.js";
+
 const ThankYouPage = {
-  render: (email = "test@test.com") => {
-    const view = /*html*/ `
-      <section class="thank-you-page">
-        <h1> Thanks for subscribing!</h1>
-        <p>A confirmation email has been sent to <span id="email">${email}</span>. Please open it and click the button inside to confirm your subscription.</p>
-      </section>
-    `;
-    return view;
+  render: (email = "test@test.com") => ThankYouPageContent(email),
+  addEventListener: () => {
+    window.addEventListener("DOMContentLoaded", () => {
+      const email = document.getElementById("email");
+      if (!email.innerHTML && ThankYouPage.loadEmail()) {
+        email.innerHTML = ThankYouPage.loadEmail();
+      }
+    });
+  },
+  loadEmail: () => {
+    const savedEmail = localStorage.getItem("email");
+    return savedEmail;
   },
 };
 

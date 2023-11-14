@@ -1,4 +1,4 @@
-export const StartPageContent = `
+export const StartPageContent = /*jsx*/ `
 <section class="start-page">
   <h1>Stay updated!</h1>
   <p>Join 60,000+ product managers receiving monthly updates on:</p>
