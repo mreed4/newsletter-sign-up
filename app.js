@@ -12,7 +12,7 @@ const root = document.getElementById("root");
 
 const router = () => {
   const request = window.location.pathname;
-  root.innerHTML = routes[request].render();
+  root.innerHTML = routes[request]?.render();
   addEventListeners();
 };
 
