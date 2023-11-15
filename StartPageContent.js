@@ -1,4 +1,5 @@
-const StartPageContent = () => /*jsx*/ `
+const StartPageContent = () => {
+  return /*jsx*/ `
 <section class="start-page">
   <div class="content">
   <h1>Stay updated!</h1>
@@ -20,5 +21,6 @@ const StartPageContent = () => /*jsx*/ `
   </div>
 </section>
 `;
+};
 
 export default StartPageContent;

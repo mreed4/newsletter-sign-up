@@ -1,4 +1,5 @@
-const ThankYouPageContent = (email) => /*jsx*/ `
+const ThankYouPageContent = (email) => {
+  return /*jsx*/ `
 <section class="thank-you-page">
   <div>
   <img src="./assets/images/icon-success.svg" alt="Success icon" />
@@ -10,4 +11,5 @@ const ThankYouPageContent = (email) => /*jsx*/ `
   <button>Dismiss message</button>
 </section>
 `;
+};
 export default ThankYouPageContent;
