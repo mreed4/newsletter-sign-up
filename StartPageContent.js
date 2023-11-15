@@ -15,7 +15,8 @@ const StartPageContent = () => /*jsx*/ `
   </form>
   </div>
   <div class="image">
-    <img src="./assets/images/illustration-sign-up-desktop.svg" alt="Sign up illustration" />
+    <img src="./assets/images/illustration-sign-up-desktop.svg" alt="Sign up illustration" class="desktop" />
+    <img src="./assets/images/illustration-sign-up-mobile.svg" alt="Sign up illustration" class="mobile" />
   </div>
 </section>
 `;
