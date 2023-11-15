@@ -4,6 +4,7 @@ const ThankYouPage = {
   render: (email = "test@test.com") => ThankYouPageContent(email),
   addEventListener: () => {
     window.addEventListener("DOMContentLoaded", () => {
+      ThankYouPage.loadEmail();
       const email = document.getElementById("email");
       if (!email.innerHTML && ThankYouPage.loadEmail()) {
         email.innerHTML = ThankYouPage.loadEmail();

@@ -2,7 +2,7 @@ import { onNavigate } from "./app.js";
 import StartPageContent from "./StartPageContent.js";
 
 const StartPage = {
-  render: () => StartPageContent,
+  render: () => StartPageContent(),
   /* */
   onNavigate: () => {
     onNavigate("/thank-you");
@@ -11,6 +11,7 @@ const StartPage = {
     document.querySelector("#subscribe-button").addEventListener("click", {
       handleEvent: () => {
         const email = StartPage.getEmail();
+        StartPage.saveEmail(email);
         onNavigate("/thank-you", email);
       },
     });
@@ -25,7 +26,10 @@ const StartPage = {
       },
     });
     document.querySelector("#subscribe-form").addEventListener("submit", {
-      handleEvent: StartPage.handleFormSubmit,
+      handleEvent: (event) => {
+        StartPage.handleFormSubmit(event);
+        StartPage.saveEmail(StartPage.getEmail());
+      },
     });
   },
   validateEmail: (email) => {

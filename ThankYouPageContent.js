@@ -1,5 +1,6 @@
 const ThankYouPageContent = (email) => /*jsx*/ `
 <section class="thank-you-page">
+  <img src="./assets/images/icon-success.svg" alt="Success icon" />
   <h1> Thanks for subscribing!</h1>
   <p>A confirmation email has been sent to <span id="email">${
     email || savedEmail

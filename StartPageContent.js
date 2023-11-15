@@ -1,5 +1,6 @@
-export const StartPageContent = /*jsx*/ `
+const StartPageContent = () => /*jsx*/ `
 <section class="start-page">
+  <div class="content">
   <h1>Stay updated!</h1>
   <p>Join 60,000+ product managers receiving monthly updates on:</p>
   <ul>
@@ -8,10 +9,14 @@ export const StartPageContent = /*jsx*/ `
     <li>And much more!</li>
   </ul>
   <form id="subscribe-form">
-    <label for="email">Email</label>
+    <label for="email">Email address</label>
     <input type="email" id="email" placeholder="email@company.com" />
     <button id="subscribe-button" disabled type="button">Subscribe to monthly newsletter</button>
   </form>
+  </div>
+  <div class="image">
+    <img src="./assets/images/illustration-sign-up-desktop.svg" alt="Sign up illustration" />
+  </div>
 </section>
 `;
 
