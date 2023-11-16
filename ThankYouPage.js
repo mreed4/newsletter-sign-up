@@ -1,9 +1,8 @@
 import ThankYouPageContent from "./ThankYouPageContent.js";
 
 const ThankYouPage = {
-  render: (email = "test@test.com") => {
-    return ThankYouPageContent(email);
-  },
+  render: (email = "test@test.com") => ThankYouPageContent(email),
+  /* */
   addEventListener: () => {
     window.addEventListener("DOMContentLoaded", () => {
       ThankYouPage.loadEmail();

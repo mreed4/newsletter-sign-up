@@ -2,9 +2,7 @@ import { onNavigate } from "./app.js";
 import StartPageContent from "./StartPageContent.js";
 
 const StartPage = {
-  render: () => {
-    return StartPageContent();
-  },
+  render: () => StartPageContent(),
   /* */
   onNavigate: () => {
     onNavigate("/thank-you");
